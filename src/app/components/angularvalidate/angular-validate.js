@@ -20,22 +20,37 @@ angular.module('improvedAngularStackoveflow').directive('angularValidate', funct
 		// 	//$('.form-control').attr('ng-model','iElm');
 		// },
 			link: function($scope, iElm, iAttrs, controller) {
-			    var $invalid = $('.form-control').val().replace(/\s/);
-			    //var $valid = $('.form-control').hasClass('ng-valid');
+				    //var inputTextType = $('.form-control[type="text"]').val() === '';
+				   $('#submit').on('click', function() {
+				    	var noOfErrorMessages = $('span.error').length;
+			   			$('.form-control').each(function() {
+							
+							if(noOfErrorMessages === 1 || noOfErrorMessages === 0) {
+								$(this).parent().after('<span class="error">This Field is Required</san>');
+							}
+			       				if($(this).val() === '') {
+			       					$(this).parent().addClass('has-error');
+			       					
+			       				}
+			       				else {
+			       					$(this).parent().addClass('has-success');	
+			       					$(this).parent().removeClass('has-error');
+			       					$(this).parent().next().remove();
+			       				}
 
-			    
-			        $('.form-control').each(function() {
-			            $(this).keyup(function(e) {
-			            	if($invalid) {
-			            		$(this).parent().addClass('has-error');
-			            	}
-			            	else {
-			            		$(this).parent().addClass('has-success');	
-			            	}
-			            })
-			            
-			        
-			    })
+
+			       			})
+					var allFormFields  = $('.form-control').length;
+				    var allValidFields  = $('.has-success').length;
+				    var allInValidFields  = $('.has-error').length;
+
+				    if(allInValidFields === 0) {
+				    	$('#submit').submit();
+				    	alert('submitting form...');
+				    }
+
+	          })
+			 
 
 			}
 
