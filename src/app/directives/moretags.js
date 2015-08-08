@@ -1,9 +1,11 @@
-  angular
+  (function() {
+
+  	 angular
     .module('improvedAngularStackoveflow')
-    .factory('whenScrolled', whenScrolled);
+    .directive('whenScrolled', whenScrolled);
 
 function whenScrolled() {
-improvedAngularStackoveflow.directive("whenScrolled", function() {
+
 	return {
 		restrict: 'A',
 		link: function(scope, elem, attrs) {
@@ -21,6 +23,7 @@ improvedAngularStackoveflow.directive("whenScrolled", function() {
 			});
 		}
 	}
-});
-	
-}
+	}
+  })();
+
+ 

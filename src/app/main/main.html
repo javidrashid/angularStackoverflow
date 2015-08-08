@@ -1,34 +1,60 @@
-<div class="container">
-
   <div>
-    <acme-navbar creationDate="main.creationDate" />
+    <acme-navbar creationDate="contact.creationDate" />
   </div>
+    <div class="container">
+        <div class="row">
 
-  <div class="jumbotron text-center">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p class="animated infinite" ng-class="main.classAnimation">
-      <button type="button" class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</button>
-    </p>
-    <p>
-      With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']" />
-    </p>
-  </div>
+        <!-- Tags Section-->
+        <div class="col-lg-3 ">
+            <ul class="list-group ul-tags loadmoretags" when-scrolled='loadMoreTags()'>
+              <li ng-repeat="tag in totalTags" class="list-group-item">
+                  <button class="btn btn-primary btn-lg" ng-click="getQuestions(tag.name)">{{tag.name}}
+                     (<span>{{tag.count}}</span>)
+                  </button>
 
-  <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
-      <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-        <div class="caption">
-          <h3>{{ awesomeThing.title }}</h3>
-          <p>{{ awesomeThing.description }}</p>
-          <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
+
+                </li>
+              <li> <div data-ng-show='loading' class='wait-signal'><img src="app/loader.gif"></div></li>
+            </ul>
         </div>
-      </div>
-    </div>
-  </div>
 
-</div>
+        <!-- Questions Section-->
+        <div class="col-lg-4" >
+          <ul class="list-group ul-tags" when-questions-scrolled='loadMoreQuestions()'>
+            <li ng-repeat="question in data.items" class="list-group-item col-lg-12" set-background-color>
+              
+              <div class="col-sm-2">
+              <img class = "img-circle" ng-src={{question.owner.profile_image}} alt={{question.owner.display_name}}/>
+              </div>
+              <div class="col-sm-10">
+              <a href="#" ng-click="getAnswers(question.question_id)">{{question.title}}
+                <button class="btn btn-info pull-right btn-xs col-sm-4" ng-click="showMore = !showMore">More</button>
+              </a>
+              </div>
+            <div ng-show="showMore" ng-bind-html="question.body">{{question.body}}</div></li>
+             <li> <div data-ng-show='loading' class='wait-signal'><img src="app/loader.gif"></div></li>
+          </ul>
+        </div>
+
+
+
+        <!-- Answers Section-->
+        <div class="col-lg-5 ul-tags" >
+          <ul class="list-group">
+           <li ng-repeat="answer in answerdata.items" class="list-group-item col-lg-12" ng-if="answerlength !== 0">
+              <h3>Answer By {{answer.owner.display_name}} 
+              <img class = "img-circle" ng-src={{answer.owner.profile_image}} alt={{answer.owner.display_name}}/></h3>
+              <div ng-bind-html="answer.body">{{answer.body}</div>
+             </li>
+             <li class=" remove-padding">
+             <ul class="list-group">
+               <li class="list-group-item col-lg-12"  ng-if="answerlength === 0">
+                  This Question has no answer as yet...
+               </li>
+             </ul>
+             </li>
+          </ul>
+        </div>
+        
+        </div>
+    </div>    

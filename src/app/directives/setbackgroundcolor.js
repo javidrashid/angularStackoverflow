@@ -1,10 +1,11 @@
-  angular
+(function() {
+	angular
     .module('improvedAngularStackoveflow')
-    .factory('setBackgroundColor', setBackgroundColor);
+    .directive('setBackgroundColor', setBackgroundColor);
 
 function setBackgroundColor () {
 
-	improvedAngularStackoveflow.directive('setBackgroundColor', [function () {
+
 	return {
 		restrict: 'A',
 		link: function (scope, iElement, iAttrs) {
@@ -14,6 +15,8 @@ function setBackgroundColor () {
 			})
 		}
 	};
-}])
+
 	
 }
+
+})();

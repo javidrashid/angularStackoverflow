@@ -1,9 +1,10 @@
+  (function () {
   angular
     .module('improvedAngularStackoveflow')
-    .factory('whenQuestionsScrolled', whenQuestionsScrolled);
+    .directive('whenQuestionsScrolled', whenQuestionsScrolled);
 
  function whenQuestionsScrolled() {
- 	improvedAngularStackoveflow.directive("whenQuestionsScrolled", function() { 
+
 	return {
 		restrict: 'A',
 		link: function(scope, elem, attrs) {
@@ -20,6 +21,6 @@
 			});
 		}
 	}
-});
  }   
 
+})();
