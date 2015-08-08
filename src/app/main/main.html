@@ -1,19 +1,16 @@
   <div>
     <acme-navbar creationDate="contact.creationDate" />
   </div>
-    <div class="container">
+    <div class="container container-fluid">
         <div class="row">
 
         <!-- Tags Section-->
         <div class="col-lg-3 ">
             <ul class="list-group ul-tags loadmoretags" when-scrolled='loadMoreTags()'>
-              <li ng-repeat="tag in totalTags" class="list-group-item">
-                  <button class="btn btn-primary btn-lg" ng-click="getQuestions(tag.name)">{{tag.name}}
-                     (<span>{{tag.count}}</span>)
-                  </button>
-
-
-                </li>
+              <li ng-class="{active:$index == selected}" ng-repeat="tag in totalTags"  ng-click="getQuestions(tag.name, $index)" class="list-group-item">
+                  {{tag.name}}
+                     <span class="badge">{{tag.count}}</span>
+              </li>
               <li> <div data-ng-show='loading' class='wait-signal'><img src="app/loader.gif"></div></li>
             </ul>
         </div>

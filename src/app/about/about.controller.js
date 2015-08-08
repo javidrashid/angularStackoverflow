@@ -16,12 +16,18 @@
 
 
         $scope.loading = true;
-        $scope.getQuestions = function(tag_name) {
+        $scope.getQuestions = function(tag_name, index) { 
             questionService.getQuestions(tag_name).then(function(data) {
                 $scope.data = data;
-            })
-        }
-        $scope.getQuestions('angular');
+            });
+
+            $scope.selected = 0;
+            $scope.selected = index; 
+    }
+
+
+
+    $scope.getQuestions('angular');
         $scope.page1 = 1;
         $scope.totalQuestions = [];
         
