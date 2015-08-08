@@ -20,6 +20,12 @@
         controller: 'ContactController',
         controllerAs: 'contact'
       })
+      .state('about', {
+        url: '/about',
+        templateUrl: 'app/about/about.html',
+        controller: 'simpleCtrl',
+        controllerAs: 'about'
+      })
       ;
 
     $urlRouterProvider.otherwise('/');

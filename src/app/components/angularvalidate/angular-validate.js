@@ -21,6 +21,7 @@ angular.module('improvedAngularStackoveflow').directive('angularValidate', funct
 		// },
 			link: function($scope, iElm, iAttrs, controller) {
 				    //var inputTextType = $('.form-control[type="text"]').val() === '';
+				    
 				   $('#submit').on('click', function() {
 				    	var noOfErrorMessages = $('span.error').length;
 			   			$('.form-control').each(function() {
