@@ -1,12 +1,8 @@
   <div>
     <acme-navbar creationDate="contact.creationDate" />
   </div>
-
-    <h1 class="well">{{appSettings.title}}</h1>
-    <hr>
-    <div>
-    <div>
-    <div>
+    <div class="container">
+    <div class="row">
 
     <!-- Tags Section-->
     <div class="col-lg-3 ">
@@ -39,11 +35,11 @@
          <li> <div data-ng-show='loading' class='wait-signal'><img src="css/loader.gif"></div></li>
       </ul>
     </div>
-    </div>
+
 
 
     <!-- Answers Section-->
-    <div class="col-lg-6 ul-tags" >
+    <div class="col-lg-5 ul-tags" >
       <ul class="list-group">
        <li ng-repeat="answer in answerdata.items" class="list-group-item col-lg-12" ng-if="answerlength !== 0">
           <h3>Answer By {{answer.owner.display_name}} 
@@ -59,6 +55,6 @@
          </li>
       </ul>
     </div>
-     <footer class="panel-footer pull-right app-version">App Version No:  {{appSettings.version}}</footer>
+    
     </div>
     </div>
