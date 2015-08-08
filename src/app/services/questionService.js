@@ -1,4 +1,10 @@
-improvedAngularStackoveflow.factory('questionService', function($http, $q) { 
+  angular
+    .module('improvedAngularStackoveflow')
+    .factory('questionService', questionService);
+
+
+function  questionService($http, $q) {
+ 
   return {
     getQuestions: function(tag_name) {
       var deferred = $q.defer();
@@ -25,7 +31,8 @@ improvedAngularStackoveflow.factory('questionService', function($http, $q) {
       return deferred.promise;
     }
   }
-})
+
+}
 
 
 //http://api.stackexchange.com/2.2/questions?site=stackoverflow&page=1&pagesize=20&order=desc&sort=activity&tagged=java

@@ -1,4 +1,10 @@
-improvedAngularStackoveflow.factory('tagService', function($http) { 
+  angular
+    .module('improvedAngularStackoveflow')
+    .factory('tagService', tagService);
+
+
+function tagService($http) {
+ 
   return {
     getTags: function(successcb) {
       $http.get('http://api.stackexchange.com/2.2/tags?site=stackoverflow').
@@ -10,4 +16,7 @@ improvedAngularStackoveflow.factory('tagService', function($http) {
       })
     }
   }
-})
+
+
+}
+

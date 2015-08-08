@@ -1,4 +1,10 @@
-improvedAngularStackoveflow.factory('answerService', function($http, $q) { 
+  angular
+    .module('improvedAngularStackoveflow')
+    .factory('answerService', answerService);
+
+
+function answerService($http, $q) {
+ 
   return { 
     getAnswers: function(question_id) {
       var deferred = $q.defer();
@@ -13,4 +19,6 @@ improvedAngularStackoveflow.factory('answerService', function($http, $q) {
       return deferred.promise;
     }
   }
-})
+
+ 
+}

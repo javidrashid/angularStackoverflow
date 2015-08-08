@@ -2,15 +2,15 @@
     <acme-navbar creationDate="contact.creationDate" />
   </div>
 
-    <h1 ng-controller="tagCtrl" class="well">{{appSettings.title}}</h1>
+    <h1 class="well">{{appSettings.title}}</h1>
     <hr>
     <div>
-    <div ng-controller="answerCtrl">
-    <div ng-controller="questionCtrl">
+    <div>
+    <div>
 
     <!-- Tags Section-->
     <div class="col-lg-3 ">
-        <ul class="list-group ul-tags loadmoretags" ng-controller="tagCtrl" when-scrolled='loadMoreTags()'>
+        <ul class="list-group ul-tags loadmoretags" when-scrolled='loadMoreTags()'>
         	<li ng-repeat="tag in totalTags" class="list-group-item">
               <button class="btn btn-primary btn-lg" ng-click="getQuestions(tag.name)">{{tag.name}}
                  (<span>{{tag.count}}</span>)
@@ -59,6 +59,6 @@
          </li>
       </ul>
     </div>
-     <footer ng-controller="tagCtrl" class="panel-footer pull-right app-version">App Version No:  {{appSettings.version}}</footer>
+     <footer class="panel-footer pull-right app-version">App Version No:  {{appSettings.version}}</footer>
     </div>
     </div>

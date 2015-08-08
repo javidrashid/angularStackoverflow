@@ -1,3 +1,8 @@
+  angular
+    .module('improvedAngularStackoveflow')
+    .factory('whenScrolled', whenScrolled);
+
+function whenScrolled() {
 improvedAngularStackoveflow.directive("whenScrolled", function() {
 	return {
 		restrict: 'A',
@@ -17,3 +22,5 @@ improvedAngularStackoveflow.directive("whenScrolled", function() {
 		}
 	}
 });
+	
+}

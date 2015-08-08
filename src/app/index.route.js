@@ -23,8 +23,8 @@
       .state('about', {
         url: '/about',
         templateUrl: 'app/about/about.html',
-        controller: 'simpleCtrl',
-        controllerAs: 'about'
+        controller: 'allCtrl'
+        //controllerAs: 'answer'
       })
       ;
 
