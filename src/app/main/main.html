@@ -3,11 +3,11 @@
   </div>
     <div class="container container-fluid">
         <div class="row">
-
+        <div class="col-md-12">
         <!-- Tags Section-->
         <div class="col-lg-3 ">
-            <ul class="list-group ul-tags loadmoretags" when-scrolled='loadMoreTags()'>
-              <li ng-class="{active:$index == selected}" ng-repeat="tag in totalTags"  ng-click="getQuestions(tag.name, $index)" class="list-group-item">
+            <ul class="list-group ul-tags " when-scrolled='loadMoreTags()'>
+              <li ng-class="{active:$index == selected}" ng-repeat="tag in totalTags | orderBy: 'name'"  ng-click="getQuestions(tag.name, $index)" class="list-group-item">
                   {{tag.name}}
                      <span class="badge">{{tag.count}}</span>
               </li>
@@ -18,7 +18,7 @@
         <!-- Questions Section-->
         <div class="col-lg-4" >
           <ul class="list-group ul-tags" when-questions-scrolled='loadMoreQuestions()'>
-            <li ng-repeat="question in data.items" class="list-group-item col-lg-12" set-background-color>
+            <li ng-repeat="question in data.items" class="list-group-item col-lg-12" ng-click="addLiClass()" set-background-color>
               
               <div class="col-sm-2">
               <img class = "img-circle" ng-src={{question.owner.profile_image}} alt={{question.owner.display_name}}/>
@@ -52,6 +52,6 @@
              </li>
           </ul>
         </div>
-        
+        </div>
         </div>
     </div>    

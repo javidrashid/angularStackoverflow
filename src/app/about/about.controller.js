@@ -1,4 +1,6 @@
+
 (function() {
+
 
     angular
         .module('improvedAngularStackoveflow')
@@ -19,15 +21,17 @@
         $scope.getQuestions = function(tag_name, index) { 
             questionService.getQuestions(tag_name).then(function(data) {
                 $scope.data = data;
+
             });
 
             $scope.selected = 0;
             $scope.selected = index; 
+
     }
 
 
 
-    $scope.getQuestions('angular');
+    $scope.getQuestions('angularjs', 4);
         $scope.page1 = 1;
         $scope.totalQuestions = [];
         
@@ -36,7 +40,7 @@
             console.log('load more questions');
             $scope.loading = true;
             var url = 'https://api.stackexchange.com/2.2/search?site=stackoverflow&page=' + $scope.page1 +
-                '&pagesize=20&order=desc&sort=activity&tagged=angular';
+                '&pagesize=20&order=desc&sort=activity&tagged=angularjs';
             $http.get(url)
                 .success(function(data, status, config, headers) {
                     for (var i = 0; i < data.items.length; i++) {
@@ -96,3 +100,4 @@
 
 
 })()
+ 
