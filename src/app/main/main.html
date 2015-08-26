@@ -25,7 +25,7 @@
               </div>
               <div class="col-sm-10">
               <a href="#" ng-click="getAnswers(question.question_id)">{{question.title}}
-                <button class="btn btn-info pull-right btn-xs col-sm-4" ng-click="showMore = !showMore">More</button>
+                <button class="btn btn-info pull-right btn-xs col-sm-4" ng-click="showMore = !showMore">{{buttonText}}</button>
               </a>
               </div>
             <div ng-show="showMore" ng-bind-html="question.body">{{question.body}}</div></li>

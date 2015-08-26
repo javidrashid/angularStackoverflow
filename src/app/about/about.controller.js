@@ -68,6 +68,14 @@
         //$scope.appSettings = appSettings;
 
 
+        $scope.$watch('showMore', function() {
+
+            //$scope.showMore = true;
+            $scope.buttonText = $scope.showMore ? 'Less' : 'More';
+        })
+
+        
+
         $scope.page = 1;
         $scope.totalTags = [];
         $scope.loadMoreTags = function() {
@@ -91,7 +99,7 @@
 
 
 
-
+        
 
 
 
