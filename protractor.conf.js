@@ -13,7 +13,8 @@ exports.config = {
     'browserName': 'chrome'
   },
   
-  baseUrl: 'http://localhost:3000',
+  var port = process.env.PORT || 3000
+  baseUrl: 'http://localhost:' + port,
 
   // Spec patterns are relative to the current working directly when
   // protractor is called.

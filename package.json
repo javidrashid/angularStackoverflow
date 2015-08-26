@@ -5,6 +5,10 @@
   "scripts": {
     "test": "gulp test"
   },
+  "engines": {
+    "node" : "0.10.x",
+    "npm" : "1.4.x"
+  },
   "devDependencies": {
     "gulp": "~3.9.0",
     "gulp-autoprefixer": "~2.3.1",
